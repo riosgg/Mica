@@ -22,7 +22,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://raw.githubusercontent.com/riosgg/Mica/refs/heads/index/FondoA.jpg') no-repeat center/cover; /* Reemplaza con la URL de la primera imagen */
+    background: url('FondoA.jpg') no-repeat center/cover; /* Reemplaza con la URL de la primera imagen */
     z-index: -1;
     transition: opacity 0.5s ease;
 }
@@ -116,7 +116,7 @@ h1 {
     text-align: center;
     position: relative;
     z-index: 1;
-    background: url('https://raw.githubusercontent.com/riosgg/Mica/refs/heads/index/FondoB.jpg') no-repeat center/cover; /* Reemplaza con la URL de la segunda imagen */
+    background: url('FondoB.jpg') no-repeat center/cover; /* Reemplaza con la URL de la segunda imagen */
 }
 
 .section-two h2 {
