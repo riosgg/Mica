@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los 15 de Micaela</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="section-container">
+        <div class="background"></div>
+        <div class="section">
+            <h1><span class="main-text">Los 15</span><br><span class="main-text">de</span><br><span class="large-text">Micaela</span></h1>
+            <div class="countdown">
+                <div class="countdown-label">Faltan:</div>
+                <div class="countdown-values">
+                    <span id="days" data-unit="d"></span>
+                    <span id="hours" data-unit="h"></span>
+                    <span id="minutes" data-unit="m"></span>
+                    <span id="seconds" data-unit="s"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-two">
+
+        <div class="info-block">
+            <i class="fas fa-calendar-alt"></i>
+            <h3>¿Cuándo?</h3>
+            <p>26 de Junio de 2025</p>
+            <p>[21:00 HS]</p>
+        </div>
+        <div class="info-block">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>¿Dónde?</h3>
+            <p>Colony Eventos</p>
+            <a href="#" class="btn">Cómo llegar</a>
+        </div>
+    </div>
+
+    <script>
+        // Contador regresivo hasta 17 de mayo de 2025, 21:00
+        function countdown() {
+            const countDownDate = new Date("May 17, 2025 21:00:00").getTime();
+            const x = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+
+                const days = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                const hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                const minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                const seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+
+                document.getElementById("days").innerHTML = days;
+                document.getElementById("hours").innerHTML = hours;
+                document.getElementById("minutes").innerHTML = minutes;
+                document.getElementById("seconds").innerHTML = seconds;
+
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.querySelector(".countdown").innerHTML = "¡La fiesta ha comenzado!";
+                }
+            }, 1000);
+        }
+        countdown();
+
+        // Transición del fondo al desplazarse
+        window.addEventListener('scroll', function() {
+            const sectionTwo = document.querySelector('.section-two');
+            const background = document.querySelector('.background');
+            const sectionContainer = document.querySelector('.section-container');
+            const sectionContainerBottom = sectionContainer.getBoundingClientRect().bottom;
+            if (sectionContainerBottom <= 0) {
+                background.classList.add('fade-out');
+            } else {
+                background.classList.remove('fade-out');
+            }
+        });
+    </script>
+</body>
+</html>

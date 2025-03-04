@@ -1,0 +1,195 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.section-container {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('C:\\Users\\nrios\\Documents\\Mica15\\FondoA.JPG') no-repeat center/cover; /* Reemplaza con la URL de la primera imagen */
+    z-index: -1;
+    transition: opacity 0.5s ease;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    text-transform: none;
+    letter-spacing: 2px;
+    color: #fff;
+    line-height: 1.1;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.main-text {
+    font-size: 4em;
+}
+
+.large-text {
+    font-size: 6em;
+}
+
+.countdown {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+.countdown-label {
+    font-size: 1em;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.countdown-values {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.countdown span {
+    font-size: 1.6em;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.countdown span:after {
+    content: attr(data-unit);
+    margin-left: 3px;
+    font-weight: normal;
+    font-size: 0.9em;
+    color: #fff;
+}
+
+/* Segunda sección */
+.section-two {
+    background-color: #fff;
+    color: #333;
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background: url('C:\\Users\\nrios\\Documents\\Mica15\\FondoB.JPG') no-repeat center/cover; /* Reemplaza con la URL de la segunda imagen */
+}
+
+.section-two h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #fff; /* Consistente con la primera sección */
+}
+
+.section-two .info-block {
+    background: rgba(0, 0, 0, 0.2); /* Consistente con el contador */
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff; /* Consistente con la primera sección */
+}
+
+.section-two .info-block i {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #fff; /* Consistente con la primera sección */
+}
+
+.section-two .info-block p {
+    margin: 5px 0;
+    font-size: 1.2em;
+    color: #fff; /* Consistente con la primera sección */
+}
+
+.section-two .info-block .btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.2); /* Consistente con los fondos semitransparentes */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.section-two .info-block .btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 600px) {
+    .main-text {
+        font-size: 2.5em;
+    }
+    .large-text {
+        font-size: 4em;
+    }
+    .countdown {
+        bottom: 10px;
+        width: 90%;
+        font-size: 1em;
+    }
+    .countdown span {
+        font-size: 1.3em;
+    }
+    .section-two h2 {
+        font-size: 1.8em;
+    }
+    .section-two .info-block {
+        padding: 20px;
+        max-width: 90%;
+    }
+    .section-two .info-block i {
+        font-size: 2em;
+    }
+    .section-two .info-block p {
+        font-size: 1em;
+    }
+}
