@@ -120,7 +120,7 @@ h1 {
     text-align: center;
     position: relative;
     z-index: 1;
-    background: url('FondoB.jpg') no-repeat center/cover; /* Reemplaza con la URL de la segunda imagen */
+    background: url('FondoD.jpg') no-repeat center/cover; /* Reemplaza con la URL de la segunda imagen */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -216,15 +216,15 @@ h1 {
     color: #fff;
 }
 
-/* Cuarta sección */
-.section-four {
+/* Quinta sección (Carrusel) */
+.section-carousel {
     background-color: #fff;
     color: #333;
     padding: 50px 20px;
     text-align: center;
     position: relative;
     z-index: 1;
-    background: url('URL_DE_TU_IMAGEN_AQUÍ_4') no-repeat center/cover; /* Reemplaza con la URL de la cuarta imagen */
+    background: url('FondoB.jpg') no-repeat center/cover; /* Reemplaza con la URL de la quinta imagen */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -232,39 +232,56 @@ h1 {
     min-height: 100vh;
 }
 
-.section-four h1.welcome-text {
-    margin: 0;
+.section-carousel h2.dancing-title {
     font-family: 'Dancing Script', cursive;
-    text-transform: none;
-    letter-spacing: 2px;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
     color: #fff;
-    line-height: 1.1;
-    padding: 20px 0;
     text-align: center;
-    font-size: 4em;
 }
 
-.section-four .info-block {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 500px;
-    border-radius: 10px;
+.carousel {
+    width: 80%;
+    max-width: 800px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-inner {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
+    transition: transform 0.5s ease; /* Transición suave entre fotos */
+    width: 400%; /* 100% por cada imagen (4 imágenes) */
 }
 
-.section-four .info-block p {
-    margin: 5px 0;
-    font-size: 1.2em;
-    color: #fff;
-}
-
-.section-four .small-block {
-    max-width: 500px;
-    padding: 30px;
+.carousel-inner img {
+    width: 25%; /* Cada imagen ocupa 1/4 del contenedor */
+    height: auto;
+    object-fit: cover;
+    border: 2px solid #fff; /* Contorno blanco */
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #87CEEB; /* Efecto de brillo */
 }
 
 @media (max-width: 600px) {
@@ -305,18 +322,21 @@ h1 {
     .section-three .info-block p {
         font-size: 1em;
     }
-    .section-four h1.welcome-text {
-        font-size: 2.5em;
+    .section-carousel h2.dancing-title {
+        font-size: 1.8em;
     }
-    .section-four .info-block {
+    .carousel {
+        width: 90%;
         max-width: 90%;
-        padding: 20px;
     }
-    .section-four .info-block p {
-        font-size: 1em;
+    .carousel-btn {
+        font-size: 1.2em;
+        padding: 8px;
     }
-    .section-four .small-block {
-        max-width: 90%;
-        padding: 20px;
+    .carousel-inner {
+        width: 400%;
+    }
+    .carousel-inner img {
+        width: 25%;
     }
 }
