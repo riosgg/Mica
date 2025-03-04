@@ -41,25 +41,29 @@ body {
     min-height: 100vh;
     position: relative;
     z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 h1 {
-    margin: 0;
+    margin: 0 auto;
     font-family: 'Dancing Script', cursive;
     text-transform: none;
     letter-spacing: 2px;
     color: #fff;
     line-height: 1.1;
-    padding: 20px 0;
+    padding: 0;
     text-align: center;
+    max-width: 90%;
+    width: fit-content;
 }
 
 .main-text {
-    font-size: 4em;
+    font-size: 2em;
 }
 
 .large-text {
-    font-size: 6em;
+    font-size: 3em;
 }
 
 .countdown {
@@ -117,17 +121,22 @@ h1 {
     position: relative;
     z-index: 1;
     background: url('FondoB.jpg') no-repeat center/cover; /* Reemplaza con la URL de la segunda imagen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Añadido para estirar al tamaño de la imagen */
 }
 
 .section-two h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
     font-weight: bold;
-    color: #fff; /* Consistente con la primera sección */
+    color: #fff;
 }
 
 .section-two .info-block {
-    background: rgba(0, 0, 0, 0.2); /* Consistente con el contador */
+    background: rgba(0, 0, 0, 0.2);
     padding: 30px;
     margin: 20px auto;
     max-width: 500px;
@@ -135,25 +144,25 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #fff; /* Consistente con la primera sección */
+    color: #fff;
 }
 
 .section-two .info-block i {
     font-size: 3em;
     margin-bottom: 10px;
-    color: #fff; /* Consistente con la primera sección */
+    color: #fff;
 }
 
 .section-two .info-block p {
     margin: 5px 0;
     font-size: 1.2em;
-    color: #fff; /* Consistente con la primera sección */
+    color: #fff;
 }
 
 .section-two .info-block .btn {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.2); /* Consistente con los fondos semitransparentes */
+    background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -164,12 +173,106 @@ h1 {
     background-color: rgba(255, 255, 255, 0.4);
 }
 
+/* Tercera sección */
+.section-three {
+    background-color: #fff;
+    color: #333;
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background: url('FondoC.jpg') no-repeat center/cover; /* Reemplaza con la URL de la tercera imagen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Añadido para estirar al tamaño de la imagen */
+}
+
+.section-three h2.dancing-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+.section-three .info-block {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+.section-three .info-block p {
+    margin: 5px 0;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+/* Cuarta sección */
+.section-four {
+    background-color: #fff;
+    color: #333;
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background: url('URL_DE_TU_IMAGEN_AQUÍ_4') no-repeat center/cover; /* Reemplaza con la URL de la cuarta imagen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.section-four h1.welcome-text {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    text-transform: none;
+    letter-spacing: 2px;
+    color: #fff;
+    line-height: 1.1;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 4em;
+}
+
+.section-four .info-block {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+.section-four .info-block p {
+    margin: 5px 0;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.section-four .small-block {
+    max-width: 500px;
+    padding: 30px;
+}
+
 @media (max-width: 600px) {
     .main-text {
-        font-size: 2.5em;
+        font-size: 1.8em;
     }
     .large-text {
-        font-size: 4em;
+        font-size: 2.5em;
     }
     .countdown {
         bottom: 10px;
@@ -191,5 +294,29 @@ h1 {
     }
     .section-two .info-block p {
         font-size: 1em;
+    }
+    .section-three h2.dancing-title {
+        font-size: 1.8em;
+    }
+    .section-three .info-block {
+        padding: 20px;
+        max-width: 90%;
+    }
+    .section-three .info-block p {
+        font-size: 1em;
+    }
+    .section-four h1.welcome-text {
+        font-size: 2.5em;
+    }
+    .section-four .info-block {
+        max-width: 90%;
+        padding: 20px;
+    }
+    .section-four .info-block p {
+        font-size: 1em;
+    }
+    .section-four .small-block {
+        max-width: 90%;
+        padding: 20px;
     }
 }
