@@ -112,7 +112,7 @@ body {
     font-family: 'WhisperingSignature', cursive;
     font-weight: bold;
     display: inline-block;
-    animation: smoothReveal 4s ease-out forwards; /* Cambiado a 4s para un fade más lento */
+    animation: smoothReveal 4s ease-out forwards;
     color: #333;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     margin-top: 100px;
@@ -286,7 +286,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #fff;
 }
 
 .section-five .countdown-values {
@@ -295,21 +294,21 @@ body {
     gap: 15px;
 }
 
-.section-five .countdown span {
+.section-five .countdown-values span {
     font-size: 1.6em;
     font-weight: bold;
     background: rgba(51, 51, 51, 0.2);
     padding: 8px 12px;
     border-radius: 5px;
-    color: #333; /* Cambiado a #333 para coincidir con "Mis XV años" */
+    color: #333 !important; /* Aumentamos especificidad con !important */
 }
 
-.section-five .countdown span:after {
+.section-five .countdown-values span:after {
     content: attr(data-unit);
     margin-left: 5px;
     font-weight: normal;
     font-size: 0.9em;
-    color: #333; /* Cambiado a #333 para coincidir */
+    color: #333 !important; /* Aumentamos especificidad */
 }
 
 /* Nueva sección (cuarta) */
@@ -340,26 +339,26 @@ body {
 .section-four .info-block i {
     font-size: 3em;
     margin-bottom: 10px;
-    color: #333; /* Cambiado a #333 para coincidir */
+    color: #333 !important; /* Aumentamos especificidad */
 }
 
 .section-four .info-block h3 {
     font-size: 1.5em;
     margin: 10px 0;
-    color: #333; /* Cambiado a #333 para coincidir */
+    color: #333 !important; /* Aumentamos especificidad */
 }
 
 .section-four .info-block p {
     margin: 5px 0;
     font-size: 1.2em;
-    color: #333; /* Cambiado a #333 para coincidir */
+    color: #333 !important; /* Aumentamos especificidad */
 }
 
 .section-four .info-block .btn {
     margin-top: 20px;
     padding: 10px 20px;
     background-color: rgba(255, 255, 255, 0.2);
-    color: #333; /* Cambiado a #333 para coincidir */
+    color: #333 !important; /* Aumentamos especificidad */
     text-decoration: none;
     border-radius: 5px;
     font-size: 1em;
@@ -397,7 +396,7 @@ body {
 .section-three .info-block p {
     margin: 5px 0;
     font-size: 1.2em;
-    color: #333; /* Cambiado a #333 para coincidir */
+    color: #333 !important; /* Aumentamos especificidad */
 }
 
 .section-three h1 {
@@ -461,7 +460,7 @@ body {
         padding: 10px;
         font-size: 1em;
     }
-    .section-five .countdown span {
+    .section-five .countdown-values span {
         font-size: 1.3em;
         padding: 5px 10px;
     }
