@@ -4,40 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis XV Mica</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <audio id="background-music">
+        <source src="musica.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
     <div class="section-container">
         <div class="background"></div>
         <div class="section">
-            <h1><span class="main-text">Mis XV</span><br><br><span class="large-text">Micaela</span></h1>
-            <div class="countdown">
-                <div class="countdown-label">Faltan:</div>
-                <div class="countdown-values">
-                    <span id="days" data-unit="d"></span>
-                    <span id="hours" data-unit="h"></span>
-                    <span id="minutes" data-unit="m"></span>
-                    <span id="seconds" data-unit="s"></span>
-                </div>
+            <div class="signature">Micaela</div>
+            <div class="music-control">
+                <button id="play-pause-btn" onclick="togglePlayPause()">
+                    <i class="fas fa-play"></i>
+                </button>
             </div>
-        </div>
-    </div>
-    <div class="section-carousel">
-        <h2 class="dancing-title">Galería de Fotos</h2>
-        <div class="carousel">
-            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
-            <div class="carousel-inner">
-                <img src="MicaC.jpg" alt="Foto 1">
-                <img src="MicaA.jpg" alt="Foto 2">
-                <img src="MicaB.jpg" alt="Foto 3">
-                <img src="MicaD.jpg" alt="Foto 4">
-            </div>
-            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
         </div>
     </div>
     <div class="section-two">
+        <h2 class="dancing-title">mis XV años</h2>
+        <div class="message-block">
+            <p>Porque esta noche es muy importante para mí, quiero compartirla con las personas que llevo en el corazón.</p>
+            <p>Porque sos una de ellas, quisiera que estés presente en una de las noches más inolvidables de mi vida.</p>
+        </div>
+    </div>
+    <div class="section-five">
+        <div class="date-block">
+            <div class="line"></div>
+            <div class="date-content">
+                <span class="day">SÁBADO</span>
+                <span class="number">20</span>
+                <span class="year">2025</span>
+            </div>
+            <div class="line"></div>
+            <div class="month">junio</div>
+        </div>
+        <div class="countdown-label">Faltan:</div>
+        <div class="countdown">
+            <div class="countdown-values">
+                <span id="days" data-unit="d"></span>
+                <span id="hours" data-unit="h"></span>
+                <span id="minutes" data-unit="m"></span>
+                <span id="seconds" data-unit="s"></span>
+            </div>
+        </div>
+    </div>
+    <div class="section-four">
         <div class="info-block">
             <i class="fas fa-calendar-alt"></i>
             <h3>¿Cuándo?</h3>
@@ -52,22 +67,20 @@
             <a href="https://maps.app.goo.gl/UFJodNR7cnJ9sQNS7" class="btn">Cómo llegar</a>
         </div>
         <div class="info-block">
-            <i class="fas fa-tshirt"></i> <!-- Ícono de vestimenta -->
+            <i class="fas fa-tshirt"></i>
             <h3>Dresscode</h3>
-            <p>Elegante</p>
+            <p>Elegante Sport</p>
         </div>
     </div>
     <div class="section-three">
-        <h1><span class="main-text">¡Te</span><br><span class="main-text">esperamos!</span><br></h1>
-
+        <h1 class="dancing-title main-text">¡Te<span> </span>esperamos!</h1>
         <div class="info-block">
             <p>Confirmar asistencia antes del 17 de mayo</p>
         </div>
     </div>
 
-
     <script>
-        // Contador regresivo hasta 17 de mayo de 2025, 21:00
+        // Contador regresivo
         function countdown() {
             const countDownDate = new Date("Jun 20, 2025 21:00:00").getTime();
             const x = setInterval(function() {
@@ -92,11 +105,26 @@
         }
         countdown();
 
-        // Transición del fondo al desplazarse
+        // Control de reproducción de música
+        const audio = document.getElementById('background-music');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        let isPlaying = false;
+
+        function togglePlayPause() {
+            if (isPlaying) {
+                audio.pause();
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                audio.play();
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Transición del fondo
         window.addEventListener('scroll', function() {
-            const sectionTwo = document.querySelector('.section-two');
-            const background = document.querySelector('.background');
             const sectionContainer = document.querySelector('.section-container');
+            const background = document.querySelector('.background');
             const sectionContainerBottom = sectionContainer.getBoundingClientRect().bottom;
             if (sectionContainerBottom <= 0) {
                 background.classList.add('fade-out');
@@ -104,49 +132,6 @@
                 background.classList.remove('fade-out');
             }
         });
-
-        // Carrusel automático y manual
-        let currentIndex = 0;
-        const carouselInner = document.querySelector('.carousel-inner');
-        const images = document.querySelectorAll('.carousel-inner img');
-        const totalImages = images.length;
-        const prevBtn = document.querySelector('.carousel-btn.prev');
-        const nextBtn = document.querySelector('.carousel-btn.next');
-
-        function updateCarousel() {
-            const offset = -currentIndex * 100;
-            carouselInner.style.transition = 'transform 0.5s ease'; // Transición suave
-            carouselInner.style.transform = `translateX(${offset}%)`;
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % totalImages; // Ciclo continuo
-            updateCarousel();
-        }
-
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Ciclo continuo
-            updateCarousel();
-        }
-
-        // Reiniciar transición si ya estaba en curso
-        carouselInner.addEventListener('transitionend', () => {
-            if (currentIndex === totalImages) {
-                carouselInner.style.transition = 'none'; // Sin transición para el salto
-                currentIndex = 0;
-                updateCarousel();
-            }
-        });
-
-        // Iniciar carrusel automáticamente cada 6 segundos
-        setInterval(nextSlide, 6000);
-
-        // Navegación manual con flechas
-        prevBtn.addEventListener('click', prevSlide);
-        nextBtn.addEventListener('click', nextSlide);
-
-        // Asegurar que el carrusel se reinicie al cargar la página
-        window.addEventListener('load', updateCarousel);
     </script>
 </body>
 </html>

@@ -10,6 +10,49 @@ body {
     min-height: 100vh;
 }
 
+/* Control de música */
+.music-control {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.music-control button {
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #fff;
+    border: none;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.music-control button:hover {
+    background-color: rgba(51, 51, 51, 1);
+}
+
+.music-control button i {
+    font-size: 1.5em;
+}
+
+/* Aseguramos que no haya espacios entre secciones */
+.section-container,
+.section-two,
+.section-five,
+.section-four,
+.section-three {
+    margin: 0;
+    padding: 0;
+}
+
+/* Primera sección */
 .section-container {
     position: relative;
     min-height: 100vh;
@@ -22,7 +65,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('FondoA.jpg') no-repeat center/cover; /* Reemplaza con la URL de la primera imagen */
+    background: url('FondoA.jpg') no-repeat center/cover;
     z-index: -1;
     transition: opacity 0.5s ease;
 }
@@ -45,186 +88,61 @@ body {
     box-sizing: border-box;
 }
 
-h1 {
-    margin: 0 auto;
-    font-family: 'Dancing Script', cursive;
-    text-transform: none;
-    letter-spacing: 2px;
-    color: #fff;
-    line-height: 1.1;
-    padding: 0;
-    text-align: center;
-    max-width: 90%;
-    width: fit-content;
-}
-
-.main-text {
-    font-size: 2em;
-}
-
-.large-text {
-    font-size: 3em;
-}
-
-.countdown {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    max-width: 600px;
-    background: rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 1.2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-}
-
-.countdown-label {
-    font-size: 1em;
-    margin-bottom: 5px;
-    color: #fff;
-}
-
-.countdown-values {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.countdown span {
-    font-size: 1.6em;
+/* Estilos para el efecto de firma en sección 1 */
+@font-face {
+    font-family: 'WhisperingSignature';
+    src: url('fonts/WhisperingSignature.ttf') format('truetype');
     font-weight: bold;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 5px 10px;
-    border-radius: 5px;
-    color: #fff;
+    font-style: normal;
 }
 
-.countdown span:after {
-    content: attr(data-unit);
-    margin-left: 3px;
-    font-weight: normal;
-    font-size: 0.9em;
-    color: #fff;
+@keyframes smoothReveal {
+    from {
+        opacity: 0;
+        clip-path: inset(0 100% 0 0);
+    }
+    to {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.signature {
+    font-size: 7rem;
+    font-family: 'WhisperingSignature', cursive;
+    font-weight: bold;
+    display: inline-block;
+    animation: smoothReveal 4s ease-out forwards; /* Cambiado a 4s para un fade más lento */
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    margin-top: 100px;
+}
+
+@media (max-width: 600px) {
+    .signature {
+        font-size: 5rem;
+        margin-top: 60px;
+    }
+    .music-control {
+        bottom: 10px;
+    }
+    .music-control button {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2em;
+    }
+    .music-control button i {
+        font-size: 1.2em;
+    }
 }
 
 /* Segunda sección */
 .section-two {
-    background-color: #fff;
-    color: #333;
-    padding: 50px 20px;
+    background: url('FondoD.jpg') no-repeat center/cover;
+    padding: 20px 20px;
     text-align: center;
     position: relative;
     z-index: 1;
-    background: url('FondoD.jpg') no-repeat center/cover; /* Reemplaza con la URL de la segunda imagen */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Añadido para estirar al tamaño de la imagen */
-}
-
-.section-two h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: #fff;
-}
-
-.section-two .info-block {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 500px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-}
-
-.section-two .info-block i {
-    font-size: 3em;
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.section-two .info-block p {
-    margin: 5px 0;
-    font-size: 1.2em;
-    color: #fff;
-}
-
-.section-two .info-block .btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
-.section-two .info-block .btn:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-/* Tercera sección */
-.section-three {
-    background-color: #fff;
-    color: #333;
-    padding: 50px 20px;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    background: url('FondoC.jpg') no-repeat center/cover; /* Reemplaza con la URL de la tercera imagen */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Añadido para estirar al tamaño de la imagen */
-}
-
-.section-three h2.dancing-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-}
-
-.section-three .info-block {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 500px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-}
-
-.section-three .info-block p {
-    margin: 5px 0;
-    font-size: 1.2em;
-    color: #fff;
-}
-
-/* Quinta sección (Carrusel) */
-.section-carousel {
-    background-color: #fff;
-    color: #333;
-    padding: 50px 20px;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    background: url('FondoB.jpg') no-repeat center/cover; /* Reemplaza con la URL de la quinta imagen */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -232,88 +150,336 @@ h1 {
     min-height: 100vh;
 }
 
-.section-carousel h2.dancing-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: #fff;
+/* Fondo con PNG detrás de toda la sección */
+.section-two::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('detalle.png') no-repeat center/cover;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.section-two .dancing-title,
+.section-two .message-block {
+    z-index: 2;
+}
+
+.section-two .dancing-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4em;
+    color: #333;
+    margin: 20px 0 60px;
+    position: relative;
+}
+
+/* Líneas estilizadas con color coincidente al texto */
+.section-two .dancing-title::before,
+.section-two .dancing-title::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 2px;
+    background: #333;
+    margin: 10px auto;
+    position: relative;
+}
+
+.section-two .message-block {
+    padding: 30px;
+    margin: 60px auto 20px;
+    max-width: 800px;
+    color: #333;
+    font-size: 1.2em;
+    position: relative;
     text-align: center;
 }
 
-.carousel {
-    width: 80%;
-    max-width: 800px;
-    overflow: hidden;
+.section-two .message-block p {
+    margin: 10px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2em;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+/* Nueva sección 5 */
+.section-five {
+    background: url('FondoC.jpg') no-repeat center/cover;
+    padding: 50px 20px;
+    text-align: center;
     position: relative;
-    margin: 0 auto;
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: #fff;
-    font-size: 1.5em;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.carousel-btn.prev {
-    left: 10px;
-}
-
-.carousel-btn.next {
-    right: 10px;
-}
-
-.carousel-inner {
+    z-index: 1;
     display: flex;
-    transition: transform 0.5s ease; /* Transición suave entre fotos */
-    width: 400%; /* 100% por cada imagen (4 imágenes) */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.carousel-inner img {
-    width: 25%; /* Cada imagen ocupa 1/4 del contenedor */
-    height: auto;
-    object-fit: cover;
-    border: 2px solid #fff; /* Contorno blanco */
-    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #87CEEB; /* Efecto de brillo */
+.section-five .date-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.section-five .line {
+    width: 150px;
+    height: 2px;
+    background: #333;
+    margin: 5px 0;
+}
+
+.section-five .date-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.section-five .day {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.section-five .number {
+    font-family: 'Great Vibes', cursive;
+    font-size: 6em;
+    color: #333;
+}
+
+.section-five .year {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.section-five .month {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2em;
+    color: #333;
+    text-transform: lowercase;
+    margin-top: 10px;
+}
+
+.section-five .countdown-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    color: #333;
+    margin: 30px 0 15px;
+}
+
+.section-five .countdown {
+    width: 80%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+.section-five .countdown-values {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.section-five .countdown span {
+    font-size: 1.6em;
+    font-weight: bold;
+    background: rgba(51, 51, 51, 0.2);
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: #333; /* Cambiado a #333 para coincidir con "Mis XV años" */
+}
+
+.section-five .countdown span:after {
+    content: attr(data-unit);
+    margin-left: 5px;
+    font-weight: normal;
+    font-size: 0.9em;
+    color: #333; /* Cambiado a #333 para coincidir */
+}
+
+/* Nueva sección (cuarta) */
+.section-four {
+    background: url('FondoB.jpg') no-repeat center/cover;
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.section-four .info-block {
+    background: rgba(51, 51, 51, 0.2);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-four .info-block i {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #333; /* Cambiado a #333 para coincidir */
+}
+
+.section-four .info-block h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #333; /* Cambiado a #333 para coincidir */
+}
+
+.section-four .info-block p {
+    margin: 5px 0;
+    font-size: 1.2em;
+    color: #333; /* Cambiado a #333 para coincidir */
+}
+
+.section-four .info-block .btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #333; /* Cambiado a #333 para coincidir */
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.section-four .info-block .btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Tercera sección (sin countdown) */
+.section-three {
+    background: url('FondoC.jpg') no-repeat center/cover;
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.section-three .info-block {
+    background: rgba(51, 51, 51, 0.2);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-three .info-block p {
+    margin: 5px 0;
+    font-size: 1.2em;
+    color: #333; /* Cambiado a #333 para coincidir */
+}
+
+.section-three h1 {
+    font-family: 'Great Vibes', cursive;
+    color: #1A252F;
 }
 
 @media (max-width: 600px) {
-    .main-text {
-        font-size: 1.8em;
+    .signature {
+        font-size: 5rem;
+        margin-top: 60px;
     }
-    .large-text {
-        font-size: 2.5em;
-    }
-    .countdown {
+    .music-control {
         bottom: 10px;
-        width: 90%;
+    }
+    .music-control button {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2em;
+    }
+    .music-control button i {
+        font-size: 1.2em;
+    }
+    .section-two .dancing-title {
+        font-size: 3.5em;
+        margin: 15px 0 40px;
+    }
+    .section-two .dancing-title::before,
+    .section-two .dancing-title::after {
+        width: 120px;
+        height: 2px;
+        margin: 8px auto;
+    }
+    .section-two .message-block {
+        padding: 20px;
+        max-width: 90%;
+        margin: 40px auto 15px;
         font-size: 1em;
     }
-    .countdown span {
+    .section-two .message-block p {
+        font-size: 1em;
+    }
+    .section-five .date-content {
+        gap: 20px;
+    }
+    .section-five .day,
+    .section-five .year {
+        font-size: 1.2em;
+    }
+    .section-five .number {
+        font-size: 4em;
+    }
+    .section-five .month {
+        font-size: 1.5em;
+    }
+    .section-five .countdown-label {
+        font-size: 1.2em;
+    }
+    .section-five .countdown {
+        width: 90%;
+        padding: 10px;
+        font-size: 1em;
+    }
+    .section-five .countdown span {
         font-size: 1.3em;
+        padding: 5px 10px;
     }
-    .section-two h2 {
-        font-size: 1.8em;
-    }
-    .section-two .info-block {
+    .section-four .info-block {
         padding: 20px;
         max-width: 90%;
     }
-    .section-two .info-block i {
+    .section-four .info-block i {
         font-size: 2em;
     }
-    .section-two .info-block p {
+    .section-four .info-block h3 {
+        font-size: 1.2em;
+    }
+    .section-four .info-block p {
         font-size: 1em;
     }
-    .section-three h2.dancing-title {
-        font-size: 1.8em;
+    .section-three h1 {
+        font-size: 2.5em;
     }
     .section-three .info-block {
         padding: 20px;
@@ -321,22 +487,5 @@ h1 {
     }
     .section-three .info-block p {
         font-size: 1em;
-    }
-    .section-carousel h2.dancing-title {
-        font-size: 1.8em;
-    }
-    .carousel {
-        width: 90%;
-        max-width: 90%;
-    }
-    .carousel-btn {
-        font-size: 1.2em;
-        padding: 8px;
-    }
-    .carousel-inner {
-        width: 400%;
-    }
-    .carousel-inner img {
-        width: 25%;
     }
 }
