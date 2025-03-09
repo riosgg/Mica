@@ -91,7 +91,7 @@ body {
 /* Estilos para el efecto de firma en sección 1 */
 @font-face {
     font-family: 'WhisperingSignature';
-    src: url('fonts/WhisperingSignature.ttf') format('truetype');
+    src: url('WhisperingSignature.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
